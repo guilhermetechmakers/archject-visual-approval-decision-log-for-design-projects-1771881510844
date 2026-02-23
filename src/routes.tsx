@@ -3,6 +3,8 @@ import { DashboardLayout } from '@/components/layout/dashboard-layout'
 import { LandingPage } from '@/pages/landing'
 import { LoginPage } from '@/pages/auth/login'
 import { SignupPage } from '@/pages/auth/signup'
+import { DemoRequestPage } from '@/pages/demo-request'
+import { PricingPage } from '@/pages/pricing'
 import { PasswordResetPage } from '@/pages/auth/password-reset'
 import { EmailVerificationPage } from '@/pages/auth/email-verification'
 import { DashboardPage } from '@/pages/dashboard'
@@ -34,6 +36,8 @@ const router = createBrowserRouter([
   { path: '/', element: <LandingPage /> },
   { path: '/login', element: <LoginPage /> },
   { path: '/signup', element: <SignupPage /> },
+  { path: '/demo-request', element: <DemoRequestPage /> },
+  { path: '/pricing', element: <PricingPage /> },
   { path: '/password-reset', element: <PasswordResetPage /> },
   { path: '/verify-email', element: <EmailVerificationPage /> },
   {
