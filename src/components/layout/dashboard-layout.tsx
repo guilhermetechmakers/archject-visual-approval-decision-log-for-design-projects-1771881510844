@@ -19,6 +19,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Separator } from '@/components/ui/separator'
+import { useAuthOptional } from '@/contexts/auth-context'
 
 const navItems = [
   { to: '/dashboard', label: 'Overview', icon: LayoutDashboard },
@@ -32,8 +33,10 @@ export function DashboardLayout() {
   const [collapsed, setCollapsed] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const navigate = useNavigate()
+  const auth = useAuthOptional()
 
   const handleSignOut = () => {
+    auth?.logout()
     navigate('/login')
   }
 

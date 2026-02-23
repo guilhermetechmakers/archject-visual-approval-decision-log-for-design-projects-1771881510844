@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { DashboardLayout } from '@/components/layout/dashboard-layout'
+import { ProtectedRoute } from '@/components/auth/protected-route'
 import { LandingPage } from '@/pages/landing'
 import { LoginPage } from '@/pages/auth/login'
 import { SignupPage } from '@/pages/auth/signup'
@@ -36,13 +37,20 @@ const router = createBrowserRouter([
   { path: '/', element: <LandingPage /> },
   { path: '/login', element: <LoginPage /> },
   { path: '/signup', element: <SignupPage /> },
+  { path: '/auth/login', element: <LoginPage /> },
+  { path: '/auth/signup', element: <SignupPage /> },
+  { path: '/auth/password-reset', element: <PasswordResetPage /> },
   { path: '/demo-request', element: <DemoRequestPage /> },
   { path: '/pricing', element: <PricingPage /> },
   { path: '/password-reset', element: <PasswordResetPage /> },
   { path: '/verify-email', element: <EmailVerificationPage /> },
   {
     path: '/dashboard',
-    element: <DashboardLayout />,
+    element: (
+      <ProtectedRoute>
+        <DashboardLayout />
+      </ProtectedRoute>
+    ),
     children: [
       { index: true, element: <DashboardPage /> },
       { path: 'projects', element: <ProjectsListPage /> },
